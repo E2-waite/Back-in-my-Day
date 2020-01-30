@@ -22,7 +22,6 @@ public class Example : MonoBehaviour
     public ParticleSystem ps;
 	void Start ()
 	{
-        ps.Stop();
 		//Select the instance of AudioProcessor and pass a reference
 		//to this object
 		AudioProcessor processor = FindObjectOfType<AudioProcessor> ();
@@ -37,7 +36,6 @@ public class Example : MonoBehaviour
 	{
 		Debug.Log ("Beat!!!");
         ps.Play();
-        ps.Stop();
 	}
 
 	//This event will be called every frame while music is playing
