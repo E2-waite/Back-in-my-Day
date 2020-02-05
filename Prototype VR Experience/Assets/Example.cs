@@ -13,41 +13,51 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 public class Example : MonoBehaviour
 {
-    public ParticleSystem ps;
-	void Start ()
+	public List<ParticleSystem> particles = new List<ParticleSystem>();
+	void Start()
 	{
 		//Select the instance of AudioProcessor and pass a reference
 		//to this object
-		AudioProcessor processor = FindObjectOfType<AudioProcessor> ();
-		processor.onBeat.AddListener (onOnbeatDetected);
-		processor.onSpectrum.AddListener (onSpectrum);
+		AudioProcessor processor = FindObjectOfType<AudioProcessor>();
+		processor.onBeat.AddListener(onOnbeatDetected);
+		processor.onSpectrum.AddListener(onSpectrum);
 	}
 
 	//this event will be called every time a beat is detected.
 	//Change the threshold parameter in the inspector
 	//to adjust the sensitivity
-	void onOnbeatDetected ()
+	void onOnbeatDetected()
 	{
-		Debug.Log ("Beat!!!");
-        ps.Play();
+		Debug.Log("Beat!!!");
+		StartCoroutine(ParticleEmit());
 	}
-
 	//This event will be called every frame while music is playing
-	void onSpectrum (float[] spectrum)
+	void onSpectrum(float[] spectrum)
 	{
 		//The spectrum is logarithmically averaged
 		//to 12 bands
 
-		for (int i = 0; i < spectrum.Length; ++i) {
-			Vector3 start = new Vector3 (i, 0, 0);
-			Vector3 end = new Vector3 (i, spectrum [i], 0);
-			Debug.DrawLine (start, end);
+		for (int i = 0; i < spectrum.Length; ++i)
+		{
+			Vector3 start = new Vector3(i, 0, 0);
+			Vector3 end = new Vector3(i, spectrum[i], 0);
+			Debug.DrawLine(start, end);
+		}
+	}
+
+	IEnumerator ParticleEmit()
+	{
+		for (int i = 0; i < particles.Count; i++)
+		{
+			particles[i].Play();
+			yield return null;
 		}
 	}
 }
