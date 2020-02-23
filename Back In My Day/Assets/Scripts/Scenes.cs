@@ -126,6 +126,7 @@ public class Scenes : MonoBehaviour
         yield return null;
         while (fade.fading) { yield return null; }
         DisableAll();
+        SceneManager.SetActiveScene(scenes[num]);
         scene_obj[num].SetActive(true);
         yield return new WaitForSeconds(1);
         StartCoroutine(fade.FadeOut());
