@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SceneManager.unity
+    guid: b889c8c9d3cd8c94cb7cfd270be631a2
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: f8f9f770ae0350e458e6fd05d70489a8
+  - enabled: 1
     path: Assets/Scenes/Trinity.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
@@ -17,12 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cosies.unity
     guid: 51c0fd76224d89c4c9b610cee86ce78a
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: f8f9f770ae0350e458e6fd05d70489a8
-  - enabled: 1
-    path: Assets/Scenes/SceneManager.unity
-    guid: b889c8c9d3cd8c94cb7cfd270be631a2
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c5d0388662053be48a23ed4d7f1707c6,
       type: 2}
