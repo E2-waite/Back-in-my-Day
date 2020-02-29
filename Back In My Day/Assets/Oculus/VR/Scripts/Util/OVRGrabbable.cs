@@ -16,7 +16,6 @@ permissions and limitations under the License.
 
 using System;
 using UnityEngine;
-
 /// <summary>
 /// An object that can be grabbed and thrown by OVRGrabber.
 /// </summary>
