@@ -12,7 +12,7 @@ public class Scenes : MonoBehaviour
     List<Scene> scenes = new List<Scene>();
     public List<GameObject> scene_obj = new List<GameObject>();
     SCENES current_scene = SCENES.Menu;
-
+    Posters posters;
     void Start()
     {
         fade = screen_cover.GetComponent<ScreenFade>();
@@ -31,6 +31,7 @@ public class Scenes : MonoBehaviour
             SetupObject(scene_names[i]);
             yield return null;
         }
+        posters = GameObject.Find("Posters").GetComponent<Posters>();
     }
 
     void SetupScene(string scene)
@@ -75,6 +76,7 @@ public class Scenes : MonoBehaviour
         yield return null;
         while (fade.fading) { yield return null; }
         DisableAll();
+        posters.Disable();
         SceneManager.SetActiveScene(scenes[num]);
         scene_obj[num].SetActive(true);
         yield return new WaitForSeconds(1);

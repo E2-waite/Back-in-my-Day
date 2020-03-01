@@ -63,8 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Menu.cs" />
-    <Compile Include="Assets\ObjectReturn.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scenes\Scripts\TestScript.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AmbienceEmitter.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AudioManager.cs" />
@@ -392,14 +390,17 @@
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPPropagationSettings.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPSettings.cs" />
     <Compile Include="Assets\Oculus\Spatializer\scripts\ONSPVersion.cs" />
-    <Compile Include="Assets\ScreenFade.cs" />
     <Compile Include="Assets\Scripts\AudioProcessor.cs" />
     <Compile Include="Assets\Scripts\CameraLookControl.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\Example.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\ObjectReturn.cs" />
+    <Compile Include="Assets\Scripts\Posters.cs" />
     <Compile Include="Assets\Scripts\Scenes.cs" />
+    <Compile Include="Assets\Scripts\ScreenFade.cs" />
     <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
-    <Compile Include="Assets\StartTransition.cs" />
+    <Compile Include="Assets\Scripts\StartTransition.cs" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_PC_SingleComponent.shader" />
     <None Include="Assets\Oculus\Avatar\Samples\CrossPlatform\Readme.txt" />
     <None Include="Assets\Oculus\SampleFramework\Core\CustomHands\Materials\Hands_DiffBump.shader" />

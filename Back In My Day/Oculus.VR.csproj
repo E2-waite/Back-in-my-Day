@@ -145,14 +145,14 @@
     <None Include="Assets\Oculus\VR\Resources\OVRMRCameraFrame.shader" />
     <None Include="Assets\Oculus\VR\Resources\Underlay Impostor.shader" />
     <None Include="Assets\Oculus\VR\Plugins\placeholder.txt" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Files/University Work/Year 3/AVP/AVP-Project/Back In My Day/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Files/University Work/Year 3/AVP/AVP-Project/Back In My Day/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
       <HintPath>D:/Files/University Work/Year 3/AVP/AVP-Project/Back In My Day/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Files/University Work/Year 3/AVP/AVP-Project/Back In My Day/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/2019.2.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
