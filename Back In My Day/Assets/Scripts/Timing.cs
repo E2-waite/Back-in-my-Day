@@ -115,6 +115,11 @@ public class Timing : MonoBehaviour
             {
                 light.enabled = false;
             }
+            foreach (GameObject spotlight in spotlights)
+            {
+                MeshRenderer spot_mesh = spotlight.GetComponent<MeshRenderer>();
+                spot_mesh.enabled = false;
+            }
             lights_active = false;
         }
         else
@@ -122,6 +127,11 @@ public class Timing : MonoBehaviour
             foreach (Light light in lights)
             {
                 light.enabled = true;
+            }
+            foreach (GameObject spotlight in spotlights)
+            {
+                MeshRenderer spot_mesh = spotlight.GetComponent<MeshRenderer>();
+                spot_mesh.enabled = true;
             }
             lights_active = true;
         }
