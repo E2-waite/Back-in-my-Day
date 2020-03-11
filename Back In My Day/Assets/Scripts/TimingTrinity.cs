@@ -51,39 +51,28 @@ public class TimingTrinity : MonoBehaviour
 
         //yield return new WaitForSeconds(5);
         // Music fade in
-        StartCoroutine(FadeMusic(Fade._in));
+        //StartCoroutine(FadeMusic(Fade._in));
         // Lights turn on (with spotlight clunk)
-        ToggleSpotlights();
+        //ToggleSpotlights();
         // Music particles start
         //yield return new WaitForSeconds(3);
         // Dancing particles fade in
-        //foreach (ParticleSystem ps in PSList)
-        //{
-        //
-        //    var emission = ps.emission;
-        //    emission.rate = Mathf.Lerp(0, 70000, t);
-        //    t += Time.deltaTime / 3;
-        //    yield return new WaitForEndOfFrame();
-        //}
 
-
-        //var emission = ps.emission;
         while (t < 1)
         {
             rate = Mathf.Lerp(0, 70000, t);
             t += Time.deltaTime / 10;
             yield return new WaitForEndOfFrame();
         }
-        //t = 0;
         
 
         yield return new WaitForSeconds(40);
         // Dancing particles fade out
         yield return new WaitForSeconds(3);
         // Music fades out
-        StartCoroutine(FadeMusic(Fade._out));
+        //StartCoroutine(FadeMusic(Fade._out));
         // Lights turn off
-        ToggleSpotlights();
+        //ToggleSpotlights();
         // Music particles stop
         yield return new WaitForSeconds(5);
         // Return to menu scene
@@ -97,7 +86,7 @@ public class TimingTrinity : MonoBehaviour
 
     void ToggleSpotlights()
     {
-        spotlight_audio.Play();
+        //spotlight_audio.Play();
         for (int i = 0; i < spotlights.Count; i++)
         {
             spotlights[i].GetComponent<SpotlightControl>().Toggle();
