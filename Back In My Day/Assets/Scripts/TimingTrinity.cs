@@ -9,22 +9,18 @@ public class TimingTrinity : MonoBehaviour
     public float music_fade_speed = 2;
     public List<ParticleSystem> PSList = new List<ParticleSystem>();
 
-    public float fadeTimer = 10;
-
     private GameObject dancerPrefab;
     public List<GameObject> dancers = new List<GameObject>();
-
-    public float x = 5000.0f;
 
     private void Start()
     {
         //this.gameObject = dancerPrefab;
-        
-        //foreach(GameObject Actor in GameObject.FindGameObjectsWithTag("Dancer"))
-        //{
-        //    dancers.Add(Actor);
-        //}
-        foreach(GameObject Actor in dancers)
+
+        foreach (GameObject Actor in GameObject.FindGameObjectsWithTag("Dancer"))
+        {
+            dancers.Add(Actor);
+        }
+        foreach (GameObject Actor in dancers)
         {
             //Actor.GetComponentsInChildren<ParticleSystem>();
             PSList.AddRange(Actor.GetComponentsInChildren<ParticleSystem>());
@@ -32,20 +28,6 @@ public class TimingTrinity : MonoBehaviour
 
       
         StartCoroutine(Timings());
-    }
-
-    float t, rate;
-
-    private void Update()
-    {
-        if (rate < 70000)
-        {
-            foreach (ParticleSystem ps in PSList)
-            {
-                var emission = ps.emission;
-                emission.rateOverTime = rate;
-            }
-        }
     }
 
     IEnumerator Timings()
@@ -62,17 +44,10 @@ public class TimingTrinity : MonoBehaviour
         // Music particles start
         //yield return new WaitForSeconds(3);
         // Dancing particles fade in
-
-        while (t < 1)
-        {
-            rate = Mathf.Lerp(0, 70000, t);
-            t += Time.deltaTime / fadeTimer;
-            yield return new WaitForEndOfFrame();
-        }
-        
-
+        StartCoroutine(FadeParticles(Fade._in, 5));
         yield return new WaitForSeconds(40);
         // Dancing particles fade out
+        StartCoroutine(FadeParticles(Fade._out, 5));
         yield return new WaitForSeconds(3);
         // Music fades out
         //StartCoroutine(FadeMusic(Fade._out));
@@ -81,6 +56,42 @@ public class TimingTrinity : MonoBehaviour
         // Music particles stop
         yield return new WaitForSeconds(5);
         // Return to menu scene
+    }
+
+    IEnumerator FadeParticles(Fade fade, float over_time)
+    {
+        if (fade == Fade._in)
+        {
+            float t = 0, rate;
+            while (t < 1)
+            {
+                rate = Mathf.Lerp(0, 70000, t);
+                t += Time.deltaTime / over_time;
+
+                foreach (ParticleSystem ps in PSList)
+                {
+                    var emission = ps.emission;
+                    emission.rateOverTime = rate;
+                }
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        else
+        {
+            float t = 1, rate;
+            while (t > 0)
+            {
+                rate = Mathf.Lerp(0, 70000, t);
+                t -= Time.deltaTime / over_time;
+
+                foreach (ParticleSystem ps in PSList)
+                {
+                    var emission = ps.emission;
+                    emission.rateOverTime = rate;
+                }
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 
     enum Fade
