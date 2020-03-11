@@ -9,8 +9,10 @@ public class TimingTrinity : MonoBehaviour
     public float music_fade_speed = 2;
     public List<ParticleSystem> PSList = new List<ParticleSystem>();
 
+    public float fadeTimer = 10;
+
     private GameObject dancerPrefab;
-    private List<GameObject> dancers = new List<GameObject>();
+    public List<GameObject> dancers = new List<GameObject>();
 
     public float x = 5000.0f;
 
@@ -18,10 +20,10 @@ public class TimingTrinity : MonoBehaviour
     {
         //this.gameObject = dancerPrefab;
         
-        foreach(GameObject Actor in GameObject.FindGameObjectsWithTag("Dancer"))
-        {
-            dancers.Add(Actor);
-        }
+        //foreach(GameObject Actor in GameObject.FindGameObjectsWithTag("Dancer"))
+        //{
+        //    dancers.Add(Actor);
+        //}
         foreach(GameObject Actor in dancers)
         {
             //Actor.GetComponentsInChildren<ParticleSystem>();
@@ -36,10 +38,13 @@ public class TimingTrinity : MonoBehaviour
 
     private void Update()
     {
-        foreach (ParticleSystem ps in PSList)
+        if (rate < 70000)
         {
-            var emission = ps.emission;
-            emission.rateOverTime = rate;
+            foreach (ParticleSystem ps in PSList)
+            {
+                var emission = ps.emission;
+                emission.rateOverTime = rate;
+            }
         }
     }
 
@@ -61,7 +66,7 @@ public class TimingTrinity : MonoBehaviour
         while (t < 1)
         {
             rate = Mathf.Lerp(0, 70000, t);
-            t += Time.deltaTime / 10;
+            t += Time.deltaTime / fadeTimer;
             yield return new WaitForEndOfFrame();
         }
         
