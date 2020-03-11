@@ -8,10 +8,10 @@ public class Timing : MonoBehaviour
     public List<GameObject> spotlights = new List<GameObject>();
     public float music_fade_speed = 2;
     public List<ParticleSystem> PSList = new List<ParticleSystem>();
-
+    public GameObject dynamic_lights;
     private GameObject dancerPrefab;
     public List<GameObject> dancers = new List<GameObject>();
-
+    bool lights_active = false;
     private void Start()
     {
         //this.gameObject = dancerPrefab;
@@ -56,7 +56,7 @@ public class Timing : MonoBehaviour
         // Music fades out
         StartCoroutine(FadeParticles(Fade._out, 5));
         StartCoroutine(FadeMusic(Fade._out));
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         // Lights turn off
         ToggleLights();
         yield return new WaitForSeconds(4);
@@ -108,6 +108,24 @@ public class Timing : MonoBehaviour
     void ToggleLights()
     {
         spotlight_audio.Play();
+        Light[] lights = dynamic_lights.GetComponentsInChildren<Light>();
+        if (lights_active)
+        {
+            foreach (Light light in lights)
+            {
+                light.enabled = false;
+            }
+            lights_active = false;
+        }
+        else
+        {
+            foreach (Light light in lights)
+            {
+                light.enabled = true;
+            }
+            lights_active = true;
+        }
+
         //for (int i = 0; i < spotlights.Count; i++)
         //{
         //    spotlights[i].GetComponent<SpotlightControl>().Toggle();
@@ -125,7 +143,7 @@ public class Timing : MonoBehaviour
             // turn on speaker particles
             while (volume < 1)
             {
-                volume += (music_fade_speed / 100) * Time.deltaTime;
+                volume += (music_fade_speed / 10) * Time.deltaTime;
                 music.volume = volume;
                 yield return null;
             }
@@ -135,7 +153,7 @@ public class Timing : MonoBehaviour
             volume = 1;
             while (volume > 0)
             {
-                volume -= (music_fade_speed / 100) * Time.deltaTime;
+                volume -= (music_fade_speed / 10) * Time.deltaTime;
                 music.volume = volume;
                 yield return null;
             }
