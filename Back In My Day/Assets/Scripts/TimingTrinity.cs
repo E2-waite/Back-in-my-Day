@@ -6,6 +6,8 @@ public class TimingTrinity : MonoBehaviour
 {
     public List<ParticleSystem> PSList = new List<ParticleSystem>();
 
+    public float fadeTimer = 10;
+
     private GameObject dancerPrefab;
     public List<GameObject> dancers = new List<GameObject>();
 
@@ -69,7 +71,7 @@ public class TimingTrinity : MonoBehaviour
         while (t < 1)
         {
             rate = Mathf.Lerp(0, 70000, t);
-            t += Time.deltaTime / 10;
+            t += Time.deltaTime / fadeTimer;
             yield return new WaitForEndOfFrame();
         }
         //t = 0;
