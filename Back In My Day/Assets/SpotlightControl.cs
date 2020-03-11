@@ -11,6 +11,7 @@ public class SpotlightControl : MonoBehaviour
     public Material light_on;
     public Material light_off;
     public float rotateSpeed = 1;
+    bool active = false;
     Quaternion stand_start;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,15 @@ public class SpotlightControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAtPoint(look_pos);
+        if (active)
+        {
+            LookAtPoint(look_pos);
+        }
+        else
+        {
+            // Look at start point
+            //LookAtPoint()
+        }
     }
 
     void LookAtPoint(Transform target)
@@ -31,15 +40,28 @@ public class SpotlightControl : MonoBehaviour
         //spotlight_obj.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
     }
 
-    IEnumerator TurnOn()
+
+    public void Toggle()
     {
-        light_obj.SetActive(true);
-        yield return null;
+        if (active)
+        {
+            TurnOff();
+        }
+        else
+        {
+            TurnOn();
+        }
     }
 
-    IEnumerator TurnOff()
+    void TurnOn()
+    {
+        light_obj.SetActive(true);
+        active = true;
+    }
+
+    void TurnOff()
     {
         light_obj.SetActive(false);
-        yield return null;
+        active = false;
     }
 }
