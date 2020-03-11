@@ -81,6 +81,7 @@ public class Scenes : MonoBehaviour
         scene_obj[num].SetActive(true);
         yield return new WaitForSeconds(1);
         StartCoroutine(fade.FadeOut());
+        scene_obj[num].GetComponent<Timing>().StartScene();
     }
     IEnumerator DeactivateScene(int num)
     {
