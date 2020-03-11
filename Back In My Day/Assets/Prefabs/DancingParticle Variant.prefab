@@ -132,5 +132,20 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.027187971
       objectReference: {fileID: 0}
+    - target: {fileID: 3057829159640893273, guid: 1e03e52b92bcf6943b48a7d1afd84509,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057829159640893273, guid: 1e03e52b92bcf6943b48a7d1afd84509,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3057829159640893273, guid: 1e03e52b92bcf6943b48a7d1afd84509,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[0].time
+      value: 0.0030021667
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e03e52b92bcf6943b48a7d1afd84509, type: 3}
