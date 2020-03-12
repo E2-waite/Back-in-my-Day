@@ -12,6 +12,7 @@ public class Timing : MonoBehaviour
     private GameObject dancerPrefab;
     public List<GameObject> dancers = new List<GameObject>();
     bool lights_active = false;
+    Scenes scene_manager;
     private void Start()
     {
         //this.gameObject = dancerPrefab;
@@ -31,12 +32,12 @@ public class Timing : MonoBehaviour
             var emission = ps.emission;
             emission.rateOverTime = 0;
         }
-        StartScene();
     }
 
-    public void StartScene()
+    public void StartScene(GameObject scenes)
     {
         StartCoroutine(Timings());
+        scene_manager = scenes.GetComponent<Scenes>();
     }
 
     IEnumerator Timings()
@@ -61,6 +62,7 @@ public class Timing : MonoBehaviour
         ToggleLights();
         yield return new WaitForSeconds(4);
         // Return to menu scene
+        scene_manager.ToMenu();
     }
 
     IEnumerator FadeParticles(Fade fade, float over_time)
