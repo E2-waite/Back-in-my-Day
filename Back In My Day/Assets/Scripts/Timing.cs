@@ -82,6 +82,11 @@ public class Timing : MonoBehaviour
                 }
                 yield return new WaitForEndOfFrame();
             }
+            foreach (ParticleSystem ps in PSList)
+            {
+                var emission = ps.emission;
+                emission.rateOverTime = 70000;
+            }
         }
         else
         {
@@ -97,6 +102,11 @@ public class Timing : MonoBehaviour
                     emission.rateOverTime = rate;
                 }
                 yield return new WaitForEndOfFrame();
+            }
+            foreach (ParticleSystem ps in PSList)
+            {
+                var emission = ps.emission;
+                emission.rateOverTime = 0;
             }
         }
     }
