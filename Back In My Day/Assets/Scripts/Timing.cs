@@ -1,46 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Enums;
 public class Timing : MonoBehaviour
 {
     public AudioSource music, spotlight_audio;
     public List<GameObject> spotlights = new List<GameObject>();
     public float music_fade_speed = 2;
-    public List<ParticleSystem> PSList = new List<ParticleSystem>();
     public GameObject dynamic_lights;
-    private GameObject dancerPrefab;
-    public List<GameObject> dancers = new List<GameObject>();
+    public GameObject dancer_parent;
+    List<GameObject> dancers = new List<GameObject>();
     bool lights_active = false;
     Scenes scene_manager;
     private void Start()
     {
-        //this.gameObject = dancerPrefab;
-
-        foreach (GameObject Actor in GameObject.FindGameObjectsWithTag("Dancer"))
+        foreach (Transform child in dancer_parent.transform)
         {
-            dancers.Add(Actor);
-        }
-        foreach (GameObject Actor in dancers)
-        {
-            //Actor.GetComponentsInChildren<ParticleSystem>();
-            PSList.AddRange(Actor.GetComponentsInChildren<ParticleSystem>());
-
-        }
-        foreach (ParticleSystem ps in PSList)
-        {
-            var emission = ps.emission;
-            emission.rateOverTime = 0;
+            dancers.Add(child.gameObject);
         }
     }
 
-    public void StartScene(GameObject scenes)
+    public void StartScene(GameObject scenes, SCENES scene)
     {
-        StartCoroutine(Timings());
         scene_manager = scenes.GetComponent<Scenes>();
+        if (scene == SCENES.Trinity)
+        {
+            StartCoroutine(TrinityTimings());
+        }
+
     }
 
-    IEnumerator Timings()
+    IEnumerator TrinityTimings()
     {
         //Starts in darkness
         yield return new WaitForSeconds(4);
@@ -51,11 +41,11 @@ public class Timing : MonoBehaviour
         StartCoroutine(FadeMusic(Fade._in));
         yield return new WaitForSeconds(5);
         // Dancing particles fade in
-        StartCoroutine(FadeParticles(Fade._in, 5));
-        yield return new WaitForSeconds(45);
+        StartCoroutine(FadeOverTime(5, Fade._in, 0.8f));
+        yield return new WaitForSeconds(75);
         // Dancing particles fade out
         // Music fades out
-        StartCoroutine(FadeParticles(Fade._out, 5));
+        StartCoroutine(FadeOverTime(5, Fade._out, 0.8f));
         StartCoroutine(FadeMusic(Fade._out));
         yield return new WaitForSeconds(5);
         // Lights turn off
@@ -63,52 +53,6 @@ public class Timing : MonoBehaviour
         yield return new WaitForSeconds(4);
         // Return to menu scene
         scene_manager.ToMenu();
-    }
-
-    IEnumerator FadeParticles(Fade fade, float over_time)
-    {
-        if (fade == Fade._in)
-        {
-            float t = 0, rate;
-            while (t < 1)
-            {
-                rate = Mathf.Lerp(0, 70000, t);
-                t += Time.deltaTime / over_time;
-
-                foreach (ParticleSystem ps in PSList)
-                {
-                    var emission = ps.emission;
-                    emission.rateOverTime = rate;
-                }
-                yield return new WaitForEndOfFrame();
-            }
-            foreach (ParticleSystem ps in PSList)
-            {
-                var emission = ps.emission;
-                emission.rateOverTime = 70000;
-            }
-        }
-        else
-        {
-            float t = 1, rate;
-            while (t > 0)
-            {
-                rate = Mathf.Lerp(0, 70000, t);
-                t -= Time.deltaTime / over_time;
-
-                foreach (ParticleSystem ps in PSList)
-                {
-                    var emission = ps.emission;
-                    emission.rateOverTime = rate;
-                }
-                yield return new WaitForEndOfFrame();
-            }
-            foreach (ParticleSystem ps in PSList)
-            {
-                var emission = ps.emission;
-                emission.rateOverTime = 0;
-            }
-        }
     }
 
     enum Fade
@@ -154,6 +98,48 @@ public class Timing : MonoBehaviour
         //}
     }
 
+    IEnumerator FadeOverTime(float time, Fade fade, float opacity = 0.8f)
+    {
+        bool fading = true;
+        if (fade == Fade._in)
+        {
+            float current = 0;
+            while (fading)
+            {
+                current += Time.deltaTime;
+                float alpha = Mathf.Lerp(0, opacity, current / time);
+                foreach (GameObject dancer in dancers)
+                {
+                    GlowShaderFade fader = dancer.GetComponent<GlowShaderFade>();
+                    fader.SetAlpha(current);
+                }
+                if (alpha >= opacity)
+                {
+                    fading = false;
+                }
+                yield return null;
+            }
+        }
+        else
+        {
+            float current = time;
+            while (fading)
+            {
+                current -= Time.deltaTime;
+                float alpha = Mathf.Lerp(opacity, 0, current / time);
+                foreach (GameObject dancer in dancers)
+                {
+                    GlowShaderFade fader = dancer.GetComponent<GlowShaderFade>();
+                    fader.SetAlpha(current);
+                }
+                if (alpha <= 0)
+                {
+                    fading = false;
+                }
+                yield return null;
+            }
+        }
+    }
 
     IEnumerator FadeMusic(Fade fade)
     {
@@ -162,6 +148,7 @@ public class Timing : MonoBehaviour
         {
             music.Play();
             volume = 0;
+            music.time = 49f;
             // turn on speaker particles
             while (volume < 1)
             {

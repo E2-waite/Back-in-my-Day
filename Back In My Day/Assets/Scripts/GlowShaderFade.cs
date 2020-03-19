@@ -42,4 +42,9 @@ public class GlowShaderFade : MonoBehaviour
             StartCoroutine(FadeGradient(Direction.up));
         }
     }
+
+    public void SetAlpha(float val)
+    {
+        material.SetFloat("_Alpha", val);
+    }
 }
