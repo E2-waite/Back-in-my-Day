@@ -25,6 +25,14 @@ public class Scenes : MonoBehaviour
         {
             TransitionScene(SCENES.Trinity);
         }
+        if (Input.GetKeyUp("2"))
+        {
+            TransitionScene(SCENES.Lakota);
+        }
+        if (Input.GetKeyUp("3"))
+        {
+            TransitionScene(SCENES.Fleece);
+        }
     }
 
     IEnumerator SetupScenes()
