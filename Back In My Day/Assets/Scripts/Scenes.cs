@@ -86,17 +86,17 @@ public class Scenes : MonoBehaviour
         }
     }
 
-    IEnumerator ActivateScene(int scene_num)
+    IEnumerator ActivateScene(int num)
     {
         StartCoroutine(fade.FadeIn());
         while (fade.fading) { yield return null; }
         DisableAll();
         posters.Disable();
-        SceneManager.SetActiveScene(scenes[scene_num]);
-        scene_obj[scene_num].SetActive(true);
+        SceneManager.SetActiveScene(scenes[num]);
+        scene_obj[num].SetActive(true);
         yield return new WaitForSeconds(1);
         StartCoroutine(fade.FadeOut());
-        scene_obj[scene_num].GetComponent<Timing>().StartScene(this.gameObject, (SCENES)scene_num);
+        scene_obj[num].GetComponent<Timing>().StartScene(this.gameObject);
     }
 
     public void ToMenu()
