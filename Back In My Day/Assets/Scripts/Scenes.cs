@@ -96,13 +96,14 @@ public class Scenes : MonoBehaviour
         scene_obj[num].SetActive(true);
         yield return new WaitForSeconds(1);
         StartCoroutine(fade.FadeOut());
-        scene_obj[num].GetComponent<Timing>().StartScene(this.gameObject);
+        scene_obj[num].GetComponent<Timing>().StartScene(this.gameObject, (SCENES)num);
     }
 
     public void ToMenu()
     {
         StartCoroutine(ReturnToMenu());
     }
+
     IEnumerator ReturnToMenu()
     {
         StartCoroutine(fade.FadeIn());

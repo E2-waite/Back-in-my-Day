@@ -19,8 +19,8 @@ public class GlowShaderFade : MonoBehaviour
     };
     IEnumerator FadeGradient(Direction dir)
     {
-       if (dir == Direction.up)
-       {
+        if (dir == Direction.up)
+        {
             float value = 0;
             while (value < 1)
             {
@@ -29,9 +29,9 @@ public class GlowShaderFade : MonoBehaviour
                 yield return null;
             }
             StartCoroutine(FadeGradient(Direction.down));
-       }
-       else
-       {
+        }
+        else
+        {
             float value = 1;
             while (value > 0)
             {
@@ -41,5 +41,10 @@ public class GlowShaderFade : MonoBehaviour
             }
             StartCoroutine(FadeGradient(Direction.up));
         }
+    }
+
+    public void SetAlpha(float val)
+    {
+        material.SetFloat("_Alpha", val);
     }
 }

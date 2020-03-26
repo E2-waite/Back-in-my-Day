@@ -182,62 +182,62 @@ PrefabInstance:
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Monochrome_SurfaceShader
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Monochrome_SurfaceShader_SelfOccluding
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Monochrome_SurfaceShader_PBS
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Skinshaded_SurfaceShader_SingleComponent
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Skinshaded_VertFrag_SingleComponent
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Skinshaded_VertFrag_CombinedMesh
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Skinshaded_Expressive_SurfaceShader_SingleComponent
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Skinshaded_Expressive_VertFrag_SingleComponent
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Skinshaded_Expressive_VertFrag_CombinedMesh
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: Loader_VertFrag_CombinedMesh
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: ControllerShader
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     - target: {fileID: 11437430, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
       propertyPath: EyeLens
       value: 
-      objectReference: {fileID: -6465566751694194690, guid: 7daeb7d80d7f50f4087ce9fbebe60630,
+      objectReference: {fileID: -6465566751694194690, guid: d8375e4f4104cb246ad94c6afac81e72,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84c8b8609f9bb434eaf5248f17ff1293, type: 3}
