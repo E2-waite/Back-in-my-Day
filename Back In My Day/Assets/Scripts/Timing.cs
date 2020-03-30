@@ -23,15 +23,12 @@ public class Timing : MonoBehaviour
     public void StartScene(GameObject scenes, SCENES scene)
     {
         scene_manager = scenes.GetComponent<Scenes>();
-        if (scene == SCENES.Trinity)
-        {
-            StartCoroutine(TrinityTimings());
-        }
-
+        StartCoroutine(Timings());
     }
 
-    IEnumerator TrinityTimings()
+    IEnumerator Timings()
     {
+        Debug.Log("STARTED TIMING");
         //Starts in darkness
         yield return new WaitForSeconds(4);
         // Lights turn on (with spotlight clunk)
