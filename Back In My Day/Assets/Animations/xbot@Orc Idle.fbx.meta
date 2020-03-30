@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 24070f61af9c29e4e82c5aa9a8a70451
+guid: 322adf86730211041a7001154d670dbf
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Macarena Dance
+      name: Orc Idle
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 493
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
