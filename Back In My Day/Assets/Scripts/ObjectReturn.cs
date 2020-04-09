@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectReturn : MonoBehaviour
 {
+    GameObject glow_obj;
+    Renderer glow;
     OVRGrabbable grabbable;
     Vector3 start_pos;
     Quaternion start_rot;
@@ -11,6 +13,8 @@ public class ObjectReturn : MonoBehaviour
     StartTransition transition;
     void Start()
     {
+        glow_obj = transform.GetChild(0).gameObject;
+        glow = glow_obj.GetComponent<Renderer>();
         grabbable = GetComponent<OVRGrabbable>();
         start_pos = transform.position;
         start_rot = transform.rotation;
@@ -33,6 +37,14 @@ public class ObjectReturn : MonoBehaviour
             transform.position = start_pos;
             transform.rotation = start_rot;
         }
-        
+
+        if (grabbable.isGrabbed)
+        {
+            glow.enabled = false;
+        }
+        else
+        {
+            glow.enabled = true;
+        }
     }
 }
