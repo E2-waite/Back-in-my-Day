@@ -107,8 +107,11 @@ public class Timing : MonoBehaviour
                 float alpha = Mathf.Lerp(0, opacity, current / time);
                 foreach (GameObject dancer in dancers)
                 {
-                    GlowShaderFade fader = dancer.GetComponent<GlowShaderFade>();
-                    fader.SetAlpha(current);
+                    if (dancer.GetComponent<GlowShaderFade>() != null)
+                    {
+                        GlowShaderFade fader = dancer.GetComponent<GlowShaderFade>();
+                        fader.SetAlpha(current);
+                    }
                 }
                 if (alpha >= opacity)
                 {

@@ -11,7 +11,10 @@ public class GlowShaderFade : MonoBehaviour
     {
         foreach(Transform child in transform)
         {
-            materials.Add(child.GetComponent<Renderer>().material);
+            if (child.GetComponent<Renderer>() != null)
+            {
+                materials.Add(child.GetComponent<Renderer>().material);
+            }
         }
     }
 
