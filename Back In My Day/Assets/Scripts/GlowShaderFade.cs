@@ -6,7 +6,6 @@ public class GlowShaderFade : MonoBehaviour
 {
     public float rate = 0.1f;
     List<Material> materials = new List<Material>();
-    public Renderer rend;
     private void Start()
     {
         foreach(Transform child in transform)
