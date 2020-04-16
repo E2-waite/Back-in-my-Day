@@ -406,6 +406,7 @@
     <Compile Include="Assets\Scripts\StartTransition.cs" />
     <Compile Include="Assets\Scripts\Timing.cs" />
     <Compile Include="Assets\Scripts\VolumetricLight.cs" />
+    <Compile Include="Assets\Speaker.cs" />
     <Compile Include="Assets\SpotlightControl.cs" />
     <Compile Include="Assets\SpotlightSwitch.cs" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\Version1.5\Avatar_PC_SingleComponent.shader" />

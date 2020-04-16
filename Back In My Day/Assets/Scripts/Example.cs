@@ -20,7 +20,7 @@ using System;
 
 public class Example : MonoBehaviour
 {
-	public List<ParticleSystem> particles = new List<ParticleSystem>();
+	public List<GameObject> speakers = new List<GameObject>();
 	void Start()
 	{
 		//Select the instance of AudioProcessor and pass a reference
@@ -54,9 +54,9 @@ public class Example : MonoBehaviour
 
 	IEnumerator ParticleEmit()
 	{
-		for (int i = 0; i < particles.Count; i++)
+		foreach (GameObject speaker in speakers)
 		{
-			particles[i].Play();
+			speaker.GetComponent<Speaker>().Emit();
 			yield return null;
 		}
 	}
