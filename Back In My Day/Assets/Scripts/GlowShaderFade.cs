@@ -5,7 +5,6 @@ using UnityEngine;
 public class GlowShaderFade : MonoBehaviour
 {
     public float rate = 0.1f;
-    public GameObject character;
     Renderer[] renderers;
     private void Start()
     {
