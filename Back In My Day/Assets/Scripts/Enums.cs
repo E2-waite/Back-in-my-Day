@@ -9,7 +9,6 @@ namespace Enums
         Trinity,
         Fleece,
         Lakota,
-        Cosies,
         Menu
     }
 }

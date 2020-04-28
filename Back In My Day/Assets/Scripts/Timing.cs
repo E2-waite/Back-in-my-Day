@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
+using System.Linq.Expressions;
+
 public class Timing : MonoBehaviour
 {
     public AudioSource music, spotlight_audio;
@@ -9,6 +11,7 @@ public class Timing : MonoBehaviour
     public float music_fade_speed = 2;
     public GameObject dynamic_lights;
     public GameObject dancer_parent;
+    public GameObject lazers;
     List<GameObject> dancers = new List<GameObject>();
     bool lights_active = false;
     Scenes scene_manager;
@@ -64,6 +67,10 @@ public class Timing : MonoBehaviour
         Light[] lights = dynamic_lights.GetComponentsInChildren<Light>();
         if (lights_active)
         {
+            if (lazers != null)
+            {
+                lazers.SetActive(false);
+            }
             foreach (Light light in lights)
             {
                 light.enabled = false;
@@ -78,6 +85,7 @@ public class Timing : MonoBehaviour
         }
         else
         {
+
             foreach (Light light in lights)
             {
                 light.enabled = true;
@@ -102,6 +110,10 @@ public class Timing : MonoBehaviour
         bool fading = true;
         if (fade == Fade._in)
         {
+            if (lazers != null)
+            {
+                lazers.SetActive(true);
+            }
             float current = 0;
             while (fading)
             {
@@ -124,6 +136,10 @@ public class Timing : MonoBehaviour
         }
         else
         {
+            if (lazers != null)
+            {
+                lazers.SetActive(false);
+            }
             float current = time;
             while (fading)
             {
