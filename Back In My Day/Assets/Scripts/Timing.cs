@@ -72,6 +72,7 @@ public class Timing : MonoBehaviour
             {
                 MeshRenderer spot_mesh = spotlight.GetComponent<MeshRenderer>();
                 spot_mesh.enabled = false;
+                spotlight.GetComponent<SpotlightController>().Toggle();
             }
             lights_active = false;
         }
@@ -85,6 +86,7 @@ public class Timing : MonoBehaviour
             {
                 MeshRenderer spot_mesh = spotlight.GetComponent<MeshRenderer>();
                 spot_mesh.enabled = true;
+                spotlight.GetComponent<SpotlightController>().Toggle();
             }
             lights_active = true;
         }
