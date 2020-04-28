@@ -5,23 +5,18 @@ using UnityEngine;
 public class GlowShaderFade : MonoBehaviour
 {
     public float rate = 0.1f;
-    List<Material> materials = new List<Material>();
+    public GameObject character;
+    Renderer[] renderers;
     private void Start()
     {
-        foreach(Transform child in transform)
-        {
-            if (child.GetComponent<Renderer>() != null)
-            {
-                materials.Add(child.GetComponent<Renderer>().material);
-            }
-        }
+        renderers = gameObject.GetComponentsInChildren<Renderer>();
     }
 
     public void SetAlpha(float val)
     {
-        foreach (Material mat in materials)
+        foreach (Renderer rend in renderers)
         {
-            mat.SetFloat("_Alpha", val);
+            rend.material.SetFloat("_Alpha", val);
         }
     }
 }
