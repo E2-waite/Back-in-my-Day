@@ -787,7 +787,7 @@ PrefabInstance:
     - target: {fileID: 8576426765712839264, guid: 6aa03c0e4fa533042b535a80144822f7,
         type: 3}
       propertyPath: scene_names.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8576426765712839264, guid: 6aa03c0e4fa533042b535a80144822f7,
         type: 3}
@@ -807,7 +807,7 @@ PrefabInstance:
     - target: {fileID: 8576426765712839264, guid: 6aa03c0e4fa533042b535a80144822f7,
         type: 3}
       propertyPath: scene_names.Array.data[3]
-      value: Cosies
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 8576426765712839264, guid: 6aa03c0e4fa533042b535a80144822f7,
         type: 3}
