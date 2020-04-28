@@ -1450,7 +1450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &60321968
 Animator:
   serializedVersion: 3
@@ -12190,7 +12189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &400333111
 Animator:
   serializedVersion: 3
@@ -13622,7 +13620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &484834724
 Animator:
   serializedVersion: 3
@@ -15274,7 +15271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &620652105
 Animator:
   serializedVersion: 3
@@ -19018,7 +19014,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &784076342
 Animator:
   serializedVersion: 3
@@ -27198,7 +27193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &962673169
 Animator:
   serializedVersion: 3
@@ -30817,7 +30811,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &1142911379
 Animator:
   serializedVersion: 3
@@ -31448,7 +31441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &1193623174
 Animator:
   serializedVersion: 3
@@ -51508,7 +51500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 0.1
-  character: {fileID: 0}
 --- !u!95 &2063654131
 Animator:
   serializedVersion: 3
