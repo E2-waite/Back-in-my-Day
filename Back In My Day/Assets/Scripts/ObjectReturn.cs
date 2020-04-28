@@ -13,9 +13,20 @@ public class ObjectReturn : MonoBehaviour
     StartTransition transition;
     void Start()
     {
-        glow_obj = transform.GetChild(0).gameObject;
-        glow = glow_obj.GetComponent<Renderer>();
-        grabbable = GetComponent<OVRGrabbable>();
+        if (transform.childCount > 0)
+        {
+            glow_obj = transform.GetChild(0).gameObject;
+            glow = glow_obj.GetComponent<Renderer>();
+        }
+        if (GetComponent<OVRGrabbable>() != null)
+        {
+            Debug.Log("GOT GRABBABLE");
+            grabbable = GetComponent<OVRGrabbable>();
+        }
+        else
+        {
+            Debug.Log("NO GRABBABLE");
+        }
         start_pos = transform.position;
         start_rot = transform.rotation;
         transition = GetComponent<StartTransition>();
