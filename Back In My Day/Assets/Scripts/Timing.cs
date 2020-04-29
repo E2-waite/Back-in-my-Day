@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 public class Timing : MonoBehaviour
 {
-    public AudioSource music, spotlight_audio;
+    public AudioSource music, spotlight_audio, narration;
     public List<GameObject> spotlights = new List<GameObject>();
     public float music_fade_speed = 2;
     public GameObject dynamic_lights;
@@ -42,7 +42,10 @@ public class Timing : MonoBehaviour
         yield return new WaitForSeconds(5);
         // Dancing particles fade in
         StartCoroutine(FadeOverTime(5, Fade._in, 0.8f));
-        yield return new WaitForSeconds(75);
+        StartCoroutine(HalfFadeMusic(Fade._out));
+        yield return new WaitForSeconds(narration.clip.length);
+        StartCoroutine(HalfFadeMusic(Fade._in));
+        yield return new WaitForSeconds(15);
         // Dancing particles fade out
         // Music fades out
         StartCoroutine(FadeOverTime(5, Fade._out, 0.8f));
@@ -98,11 +101,6 @@ public class Timing : MonoBehaviour
             }
             lights_active = true;
         }
-
-        //for (int i = 0; i < spotlights.Count; i++)
-        //{
-        //    spotlights[i].GetComponent<SpotlightControl>().Toggle();
-        //}
     }
 
     IEnumerator FadeOverTime(float time, Fade fade, float opacity = 0.8f)
@@ -185,6 +183,31 @@ public class Timing : MonoBehaviour
                 yield return null;
             }
             // turn off speaker particles
+        }
+    }
+
+    IEnumerator HalfFadeMusic(Fade fade)
+    {
+        float volume;
+        if (fade == Fade._in)
+        {
+            volume = music.volume;
+            while (volume < 1)
+            {
+                volume += (music_fade_speed / 10) * Time.deltaTime;
+                music.volume = volume;
+                yield return null;
+            }
+        }
+        else
+        {
+            volume = music.volume;
+            while (volume > 0.2f)
+            {
+                volume -= (music_fade_speed / 10) * Time.deltaTime;
+                music.volume = volume;
+                yield return null;
+            }
         }
     }
 }
