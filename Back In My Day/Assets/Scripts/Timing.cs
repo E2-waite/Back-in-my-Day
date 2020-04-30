@@ -39,20 +39,19 @@ public class Timing : MonoBehaviour
         yield return new WaitForSeconds(2);
         // Music fade in & music particles start
         StartCoroutine(FadeMusic(Fade._in));
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
         // Dancing particles fade in
         StartCoroutine(FadeOverTime(5, Fade._in, 0.5f));
         StartCoroutine(HalfFadeMusic(Fade._out));
         narration.Play();
         yield return new WaitForSeconds(narration.clip.length);
         StartCoroutine(HalfFadeMusic(Fade._in));
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(10);
         // Dancing particles fade out
         // Music fades out
-        StartCoroutine(FadeOverTime(5, Fade._out, 0.5f));
         StartCoroutine(FadeMusic(Fade._out));
-        yield return new WaitForSeconds(5);
-        // Lights turn off
+        yield return new WaitForSeconds(2);
+        TurnOffShaders();
         ToggleLights();
         yield return new WaitForSeconds(4);
         // Return to menu scene
@@ -155,6 +154,15 @@ public class Timing : MonoBehaviour
                 }
                 yield return null;
             }
+        }
+    }
+
+    void TurnOffShaders()
+    {
+        foreach (GameObject dancer in dancers)
+        {
+            GlowShaderFade fader = dancer.GetComponent<GlowShaderFade>();
+            fader.SetAlpha(0);
         }
     }
 

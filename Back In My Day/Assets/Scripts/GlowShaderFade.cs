@@ -13,9 +13,12 @@ public class GlowShaderFade : MonoBehaviour
 
     public void SetAlpha(float val)
     {
-        foreach (Renderer rend in renderers)
+        if (val <= 0.5f)
         {
-            rend.material.SetFloat("_Alpha", val);
+            foreach (Renderer rend in renderers)
+            {
+                rend.material.SetFloat("_Alpha", val);
+            }
         }
     }
 }

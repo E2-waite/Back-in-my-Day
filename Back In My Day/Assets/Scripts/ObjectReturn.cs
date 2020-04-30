@@ -45,9 +45,13 @@ public class ObjectReturn : MonoBehaviour
         {
             picked_up = false;
             transition.ResetTransition();
+        }
+        if (!grabbable.isGrabbed)
+        {
             transform.position = start_pos;
             transform.rotation = start_rot;
         }
+
 
         if (grabbable.isGrabbed)
         {
