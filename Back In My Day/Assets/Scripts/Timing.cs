@@ -41,14 +41,14 @@ public class Timing : MonoBehaviour
         StartCoroutine(FadeMusic(Fade._in));
         yield return new WaitForSeconds(5);
         // Dancing particles fade in
-        StartCoroutine(FadeOverTime(5, Fade._in, 0.8f));
+        StartCoroutine(FadeOverTime(5, Fade._in, 0.5f));
         StartCoroutine(HalfFadeMusic(Fade._out));
         yield return new WaitForSeconds(narration.clip.length);
         StartCoroutine(HalfFadeMusic(Fade._in));
         yield return new WaitForSeconds(15);
         // Dancing particles fade out
         // Music fades out
-        StartCoroutine(FadeOverTime(5, Fade._out, 0.8f));
+        StartCoroutine(FadeOverTime(5, Fade._out, 0.5f));
         StartCoroutine(FadeMusic(Fade._out));
         yield return new WaitForSeconds(5);
         // Lights turn off
