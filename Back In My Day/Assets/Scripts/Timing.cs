@@ -43,6 +43,7 @@ public class Timing : MonoBehaviour
         // Dancing particles fade in
         StartCoroutine(FadeOverTime(5, Fade._in, 0.5f));
         StartCoroutine(HalfFadeMusic(Fade._out));
+        narration.Play();
         yield return new WaitForSeconds(narration.clip.length);
         StartCoroutine(HalfFadeMusic(Fade._in));
         yield return new WaitForSeconds(15);
